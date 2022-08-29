@@ -1,0 +1,5 @@
+In the year 20XX, {1} has stolen {2}. You must infiltrate {3},
+but when you get there, it turns out that {4} is actually {5}. One of the enemies
+activates {6} and evrything goes downhill. after a tense fight with {7} over {8},
+you discover that {9} was really trying to control {10}. You might save the day, but {0} 
+was behind the whole thing.
