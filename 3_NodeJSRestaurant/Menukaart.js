@@ -74,7 +74,7 @@ while (firsthelp == false) {
             } else if (Hungry.toUpperCase() == 'N') {
                 // Print the bill.
                 console.log(`\nThis is your order:\n\n${Order}`)
-                console.log('\x1b[33m%s\x1b[0m', `Amount to pay: \t\t€${TotalPrice}\n`)
+                console.log('\x1b[33m%s\x1b[0m', `Amount to pay: \t\t€${TotalPrice.toFixed(2)}\n`)
                 satisfied = true
 
             } else {
