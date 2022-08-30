@@ -22,7 +22,6 @@ while (-1) {
                                 catch {
                                     Write-Host "That is not a number. Please insert digits from 0-10." -fore red
                                     $failed = $true
-                                    #continue
                                 }
                             } while ($failed)
 
@@ -63,7 +62,6 @@ while (-1) {
                                         catch {
                                             Write-Host "That is not a number. Please insert digits from 0-10." -fore red
                                             $failed = $true
-                                            #continue
                                         }
                                     } while ($failed)
         
