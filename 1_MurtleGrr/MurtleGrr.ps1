@@ -1,12 +1,12 @@
 # Let user pick a name, or use the default
-if (($input = Read-Host "Hi, what is your name?") -eq "") {
+if (($answer = Read-Host "Hi, what is your name?") -eq "") {
     $name = "Operator"
 } else {
-    $name = $input
+    $name = $answer
 }
 
 # Retrieve European capital cities.
-$cities = curl -Uri https://raw.githubusercontent.com/alv2017/DataSets/master/Europe/europe-capital-cities.csv -UseBasicParsing
+$cities = Invoke-WebRequest -Uri https://raw.githubusercontent.com/alv2017/DataSets/master/Europe/europe-capital-cities.csv -UseBasicParsing
 $data = $cities | ConvertFrom-Csv
 $capitals = $data.capital
 
@@ -16,7 +16,7 @@ $city = $capitals[0]
 
 # Retrieve current date from chosen city.
 $link = "http://worldtimeapi.org/api/timezone/Europe/$city"
-$response = curl -Uri $link -UseBasicParsing
+$response = Invoke-WebRequest -Uri $link -UseBasicParsing
 $timedata = $response.Content | ConvertFrom-Json
 $datetime = $timedata.datetime
 $date = $datetime | Get-Date -Format "MM/dd/yyy HH:mm"
