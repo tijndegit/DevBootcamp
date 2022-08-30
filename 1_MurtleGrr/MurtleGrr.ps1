@@ -1,6 +1,9 @@
-param(
-    [Parameter(Mandatory=$false)][string]$name = "Operator"
-)
+# Let user pick a name, or use the default
+if (($input = Read-Host "Hi, what is your name?") -eq "") {
+    $name = "Operator"
+} else {
+    $name = $input
+}
 
 # Retrieve European capital cities.
 $cities = curl -Uri https://raw.githubusercontent.com/alv2017/DataSets/master/Europe/europe-capital-cities.csv -UseBasicParsing
