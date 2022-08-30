@@ -12,26 +12,28 @@
 <body>
 
     <h1>Welkom bij Blue10 Bistro</h1>
-    <h3>Bestel hier</h3>
-    <h4>Hoofdgerechten</h4>
+    <h3>Voeg gerechten toe aan je bestelling</h3>
+    
 
     <form id="menukaart" name="menukaart">
-        Select a dish:
-        <br><br>
+        <h4>Voorgerechten</h4>
         <input type="radio" id="dish1" name="dish" value="Smoked Salmon 6.25">
         <label for="dish1"> Smoked Salmon: 6.25</label><br>
         <input type="radio" id="dish2" name="dish" value="Carrot Soup 3.55">
         <label for="dish2"> Carrot Soup: 3.55</label><br>
+        <h4>Hoofdgerechten</h4>
         <input type="radio" id="dish3" name="dish" value="Chicken Balerno 9.35">
         <label for="dish3"> Chicken Balerno: 9.35</label><br>
         <input type="radio" id="dish4" name="dish" value="Roast Beef 10.00">
         <label for="dish4"> Roast Beef: 10.00</label><br>
         <input type="radio" id="dish5" name="dish" value="Pizza Americana 10.20">
         <label for="dish5"> Pizza Americana: 10.20</label><br>
+        <h4>Desserts</h4>
         <input type="radio" id="dish6" name="dish" value="Chocolate Gateau 4.00">
         <label for="dish6"> Chocolate Gateau: 4.00</label><br>
         <input type="radio" id="dish7" name="dish" value="Chocolate Cake 4.50">
         <label for="dish7"> Chocolate Cake: 4.50</label><br>
+        <h4>Dranken</h4>
         <input type="radio" id="dish8" name="dish" value="Coffee and Mints 2.50">
         <label for="dish8"> Coffee and Mints: 2.50</label><br>
         <input type="radio" id="dish9" name="dish" value="Margarita Lemon 7.00">
@@ -46,12 +48,12 @@
 
     </form>
 
-    <input type="submit" value="Bestel dit item" onclick="myFunction()">
+    <input type="submit" value="Voeg toe aan bestelling" onclick="myFunction()">
     <script>
 
         let totalPrice = parseFloat(0)
         function myFunction() {
-            var paragraph = document.createElement("p");
+            var paragraph = document.createElement("li");
             var selecteddish = document.querySelector('input[name="dish"]:checked').value
             const price = String(selecteddish).split(" ").pop()
             totalPrice += parseFloat(price)
@@ -78,14 +80,15 @@
     <script>
         function computeAmount() {
             var paragraph = document.createElement("p");
-            var text = document.createTextNode(totalPrice.toFixed(2));
+            var text = document.createTextNode("Te betalen: €" + totalPrice.toFixed(2));
             paragraph.appendChild(text); // Zet de text in de paragraph
             var element = document.getElementById("totaalbedrag")//Pak de target div
             element.appendChild(paragraph); // Voeg nieuwe paragraaf aan target div
         }
     </script>
 
-    <h2>Te betalen: € <div id="totaalbedrag"></div></h2>
+    <h3>Bon</h3>
+    <h2><div id="totaalbedrag"></div></h2>
 
 
 </body>
