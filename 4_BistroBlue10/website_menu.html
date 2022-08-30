@@ -19,7 +19,6 @@
     <h1 class = "menuheaders">Welkom bij Bistro Blue10!</h1>
     <hr> 
     <h3 class = "menuheaders">Voeg gerechten toe aan je bestelling</h3>
-    
 
     <form id="menukaart" name="menukaart">
         <h4 class = "menuheaders">Voorgerechten</h4>
@@ -48,25 +47,26 @@
         <label for="dish10"> Cosmopolitan: 7.99</label><br>
         <input type="radio" id="dish11" name="dish" value="Moscow Mule 3.90">
         <label for="dish11"> Moscow Mule: 3.90</label><br>
-
         <br>
-
 
     </form>
 
     <input type="submit" value="Voeg toe aan bestelling" onclick="ListOrder()">
+    
     <script>
 
-        let totalPrice = parseFloat(0)
+        let totalPrice = parseFloat(0) // Definieer globaal de totaalprijs.
         function ListOrder() {
-            var paragraph = document.createElement("li");
-            var selecteddish = document.querySelector('input[name="dish"]:checked').value // Voeg
-            const price = String(selecteddish).split(" ").pop()
-            totalPrice += parseFloat(price)
-            var text = document.createTextNode(selecteddish); // Definieer de text
-            paragraph.appendChild(text); // Zet de text in de paragraph
-            var element = document.getElementById("bonnetje")//Pak de target div
-            element.appendChild(paragraph); // Voeg nieuwe paragraaf aan target div
+            document.getElementById("totaalbedrag").innerHTML = "" // Verwijder de eerder berekende totaalprijs als bestelling wijzigt.
+            var selecteddish = document.querySelector('input[name="dish"]:checked').value // Haal de geselecteerde waarde op.
+            const price = String(selecteddish).split(" ").pop() // Onttrek de prijs uit de string.
+            totalPrice += parseFloat(price) // Tel  de prijs van deze dish op bij totaalprijs.
+
+            var paragraph = document.createElement("li"); // Maak een bulletpoint.
+            var text = document.createTextNode(selecteddish); // Definieer de text.
+            paragraph.appendChild(text); // Zet de text in de bulletpoint.
+            var element = document.getElementById("bonnetje")//Pak de target div.
+            element.appendChild(paragraph); // Voeg nieuwe bulletpoint toe aan target div.
         }
     </script>
 
@@ -80,16 +80,24 @@
     </ul>
 
     <input type="submit" value="Bestelling bevestigen, naar betalen" onclick="ComputeAmount()">
+    <input type="submit" value="Bestelling wissen" onclick="EmptyList()">
 
     <hr>
 
     <script>
         function ComputeAmount() {
-            var paragraph = document.createElement("p");
-            var text = document.createTextNode("Te betalen: €" + totalPrice.toFixed(2));
-            paragraph.appendChild(text); // Zet de text in de paragraph
-            var element = document.getElementById("totaalbedrag")//Pak de target div
-            element.appendChild(paragraph); // Voeg nieuwe paragraaf aan target div
+            document.getElementById("totaalbedrag").innerHTML = "" // Verwijder eventueel eerder berekend bedrag.
+            var paragraph = document.createElement("p"); // Maak een tekstregel.
+            var text = document.createTextNode("Te betalen: €" + totalPrice.toFixed(2)); // Definieer de tekst voor in de tekstregel.
+            paragraph.appendChild(text); // Zet de text in de regel.
+            var element = document.getElementById("totaalbedrag")//Pak de target div.
+            element.appendChild(paragraph); // Voeg nieuwe regel toe aan target div.
+        }
+
+        function EmptyList() {
+            document.getElementById("bonnetje").innerHTML = ""
+            document.getElementById("totaalbedrag").innerHTML = ""
+            totalPrice = parseFloat(0)
         }
     </script>
 
