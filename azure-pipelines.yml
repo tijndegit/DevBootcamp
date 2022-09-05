@@ -3,17 +3,33 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+#trigger:
+#- main
+
+#pool:
+#  vmImage: ubuntu-latest
+
+#steps:
+#- script: echo Hello, world!
+#  displayName: 'Run a one-line script'
+
+#- script: |
+#    echo Add other tasks to build, test, and deploy your project.
+#    echo See https://aka.ms/yaml
+#  displayName: 'Run a multi-line script'
+
 trigger:
-- main
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
-pool:
-  vmImage: ubuntu-latest
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+jobs:
+  soSomething:
+    runs-on: windows-latest
+    steps:
+    - name: checkout
+    uses: actions/checkout@v2
+    - run: ls
+    - run: azcopy copy .\*
+'${{secrets.AZURE_STORAGE_CONN_STRING}}'
