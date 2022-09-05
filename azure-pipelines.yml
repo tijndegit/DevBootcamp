@@ -4,13 +4,12 @@ trigger:
   push:
     branches:
       - main
-
 jobs:
   soSomething:
     runs-on: windows-latest
     steps:
     - name: checkout
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
     - run: ls
-    - run: azcopy copy.\*
+    - run: azcopy copy .\*
 '${{secrets.AZURE_STORAGE_SAS_QUERY}}'
