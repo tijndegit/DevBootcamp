@@ -1,0 +1,15 @@
+C:\Dev\devbootcamp\6_Dotnet\bin\Debug\net6.0\6_Dotnet.exe
+C:\Dev\devbootcamp\6_Dotnet\bin\Debug\net6.0\6_Dotnet.deps.json
+C:\Dev\devbootcamp\6_Dotnet\bin\Debug\net6.0\6_Dotnet.runtimeconfig.json
+C:\Dev\devbootcamp\6_Dotnet\bin\Debug\net6.0\6_Dotnet.dll
+C:\Dev\devbootcamp\6_Dotnet\bin\Debug\net6.0\6_Dotnet.pdb
+C:\Dev\devbootcamp\6_Dotnet\obj\Debug\net6.0\6_Dotnet.csproj.AssemblyReference.cache
+C:\Dev\devbootcamp\6_Dotnet\obj\Debug\net6.0\6_Dotnet.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\devbootcamp\6_Dotnet\obj\Debug\net6.0\6_Dotnet.AssemblyInfoInputs.cache
+C:\Dev\devbootcamp\6_Dotnet\obj\Debug\net6.0\6_Dotnet.AssemblyInfo.cs
+C:\Dev\devbootcamp\6_Dotnet\obj\Debug\net6.0\6_Dotnet.csproj.CoreCompileInputs.cache
+C:\Dev\devbootcamp\6_Dotnet\obj\Debug\net6.0\6_Dotnet.dll
+C:\Dev\devbootcamp\6_Dotnet\obj\Debug\net6.0\refint\6_Dotnet.dll
+C:\Dev\devbootcamp\6_Dotnet\obj\Debug\net6.0\6_Dotnet.pdb
+C:\Dev\devbootcamp\6_Dotnet\obj\Debug\net6.0\6_Dotnet.genruntimeconfig.cache
+C:\Dev\devbootcamp\6_Dotnet\obj\Debug\net6.0\ref\6_Dotnet.dll
