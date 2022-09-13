@@ -41,3 +41,11 @@ The best food in town is delivered by Bistro Blue10. You can place your order on
 ***Commands***:
 1. `cd ./4_BistroBlue10`
 2. `START website_menu.html`
+
+### 6. .NET Restaurant
+***Description***:
+Competition is fierce! A fourth competitor has presented itself. 
+
+***Commands***:
+1. `cd ./6_Dotnet`
+2. `./bin/Debug/net6.0/6_Dotnet.exe`
