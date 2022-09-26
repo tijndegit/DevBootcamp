@@ -8,6 +8,8 @@ function ComputeAmount() {
     paragraph.appendChild(text); // Zet de text in de regel.
     var element = document.getElementById("totaalbedrag")//Pak de target div.
     element.appendChild(paragraph); // Voeg nieuwe regel toe aan target div.
+
+    PostOrder(totalPrice)
 }
 
 function EmptyList() {
@@ -55,3 +57,14 @@ function getJSON() {
     
 }
 
+function PostOrder(totalPrice) {
+    fetch("https://b10bc-weu-httptriggertijn-fa.azurewebsites.net/api/PostOrder", {
+        method: "POST",
+        body: `{"totalPrice": ${totalPrice}}`, //JSON.stringify(totalPrice),
+        headers: {"Accept": "application/json",
+            "Content-type": "application/json"}
+    })
+    .then(response => response.json())
+    .then(json => console.log(json))
+    .catch(err => console.log(err))
+}
