@@ -58,13 +58,13 @@ function getJSON() {
 }
 
 function PostOrder(totalPrice) {
-    fetch("https://b10bc-weu-httptriggertijn-fa.azurewebsites.net/api/PostOrder", {
+    fetch("https://b10bc-weu-httptriggertijn-fa.azurewebsites.net/api/Order", {
         method: "POST",
         body: `{"totalPrice": ${totalPrice}}`, //JSON.stringify(totalPrice),
         headers: {"Accept": "application/json",
             "Content-type": "application/json"}
     })
-    .then(response => response.json())
-    .then(json => console.log(json))
-    .catch(err => console.log(err))
+    //.then(response => response.json())
+    //.then(json => console.log(json))
+   // .catch(err => console.log(err))
 }
