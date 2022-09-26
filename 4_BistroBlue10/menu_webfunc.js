@@ -1,5 +1,7 @@
 console.log("File menu_webfunc appropriately called.")
 let totalPrice = parseFloat(0) // Definieer globaal de totaalprijs.
+let NumberOfItems = 0
+let OrderedItemsLog = ""
 
 function ComputeAmount() {
     document.getElementById("totaalbedrag").innerHTML = "" // Verwijder eventueel eerder berekend bedrag.
@@ -9,13 +11,15 @@ function ComputeAmount() {
     var element = document.getElementById("totaalbedrag")//Pak de target div.
     element.appendChild(paragraph); // Voeg nieuwe regel toe aan target div.
 
-    PostOrder(totalPrice)
+    PostOrder(totalPrice, OrderedItemsLog)
 }
 
 function EmptyList() {
     document.getElementById("bonnetje").innerHTML = ""
     document.getElementById("totaalbedrag").innerHTML = ""
     totalPrice = parseFloat(0)
+    NumberOfItems = 0
+    OrderedItemsLog = ""
 }
 
 
@@ -24,12 +28,21 @@ function EmptyList() {
      var selecteddish = document.querySelector('input[name="dish"]:checked').value // Haal de geselecteerde waarde op.
      const price = String(selecteddish).split(" ").pop() // Onttrek de prijs uit de string.
      totalPrice += parseFloat(price) // Tel  de prijs van deze dish op bij totaalprijs.
+     NumberOfItems += 1
 
      var paragraph = document.createElement("li"); // Maak een bulletpoint.
      var text = document.createTextNode(selecteddish); // Definieer de text.
      paragraph.appendChild(text); // Zet de text in de bulletpoint.
      var element = document.getElementById("bonnetje")//Pak de target div.
      element.appendChild(paragraph); // Voeg nieuwe bulletpoint toe aan target div.
+
+     var dishname1 = selecteddish.split(" ")
+     var dishname2 = String(dishname1.slice(0, dishname1.length - 1)).replace(",", " ")
+     
+     if (NumberOfItems != 1) {
+        OrderedItemsLog += ","
+     }
+     OrderedItemsLog += "\"" + dishname2 + "\""
  }
 
 function getJSON() {
@@ -57,10 +70,10 @@ function getJSON() {
     
 }
 
-function PostOrder(totalPrice) {
+function PostOrder(totalPrice, OrderedItemsLog) {
     fetch("https://b10bc-weu-httptriggertijn-fa.azurewebsites.net/api/Order", {
         method: "POST",
-        body: `{"totalPrice": ${totalPrice}}`, //JSON.stringify(totalPrice),
+        body: `{"totalPrice": ${totalPrice}, "orderedItems": '${OrderedItemsLog}'}`, //JSON.stringify(totalPrice),
         headers: {"Accept": "application/json",
             "Content-type": "application/json"}
     })
