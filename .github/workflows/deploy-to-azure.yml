@@ -4,7 +4,7 @@ on:
     branches:
     - main
 jobs:
-  soSomething:
+  doSomething:
     runs-on: windows-latest
     steps:
     - name: checkout
