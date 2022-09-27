@@ -10,4 +10,4 @@ jobs:
     - name: checkout
       uses: actions/checkout@v2
     - run: ls
-    - run: azcopy copy .\4_BistroBlue10\* '${{secrets.AZURE_STORAGE_CONN_STRING}}'
+    - run: azcopy copy .\WebsiteSourceCode\* '${{secrets.AZURE_STORAGE_CONN_STRING}}'
