@@ -23,7 +23,7 @@ function EmptyList() {
 }
 
 
- function ListOrder() {
+function ListOrder() {
      document.getElementById("totaalbedrag").innerHTML = ""; // Verwijder de eerder berekende totaalprijs als bestelling wijzigt.
      var selecteddish = document.querySelector('input[name="dish"]:checked').value // Haal de geselecteerde waarde op.
      const price = String(selecteddish).split(" ").pop() // Onttrek de prijs uit de string.
@@ -36,9 +36,11 @@ function EmptyList() {
      var element = document.getElementById("bonnetje")//Pak de target div.
      element.appendChild(paragraph); // Voeg nieuwe bulletpoint toe aan target div.
 
+     // Extract filename.
      var dishname1 = selecteddish.split(" ")
      var dishname2 = String(dishname1.slice(0, dishname1.length - 1)).replace(",", " ")
      
+     // Sum up the ordered dishes. Separate by comma.
      if (NumberOfItems != 1) {
         OrderedItemsLog += ","
      }
@@ -73,11 +75,8 @@ function getJSON() {
 function PostOrder(totalPrice, OrderedItemsLog) {
     fetch("https://b10bc-weu-httptriggertijn-fa.azurewebsites.net/api/Order", {
         method: "POST",
-        body: `{"totalPrice": ${totalPrice}, "orderedItems": '${OrderedItemsLog}'}`, //JSON.stringify(totalPrice),
+        body: `{"totalPrice": ${totalPrice}, "orderedItems": '${OrderedItemsLog}'}`,
         headers: {"Accept": "application/json",
             "Content-type": "application/json"}
     })
-    //.then(response => response.json())
-    //.then(json => console.log(json))
-   // .catch(err => console.log(err))
 }
