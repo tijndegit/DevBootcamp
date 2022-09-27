@@ -69,7 +69,6 @@ function getJSON() {
                 }
             };
         });
-    
 }
 
 function PostOrder(totalPrice, OrderedItemsLog) {
@@ -78,5 +77,11 @@ function PostOrder(totalPrice, OrderedItemsLog) {
         body: `{"totalPrice": ${totalPrice}, "orderedItems": '${OrderedItemsLog}'}`,
         headers: {"Accept": "application/json",
             "Content-type": "application/json"}
+    })
+    .then(response => {
+        alert(`Order confirmed and processed. Please refer to the bottom of the screen for your payment of ${totalPrice} euro.`)
+    })
+    .catch(error => {
+        alert('An error occurred. At this moment, we cannot process your order. Please try again at a later time.')
     })
 }
