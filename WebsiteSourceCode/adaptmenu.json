@@ -10,4 +10,5 @@
  {"id": "dish10", "name": "dish", "type": "drank", "value":"Cosmopolitan 7.99"},
  {"id": "dish11", "name": "dish", "type": "drank", "value":"Moscow Mule 3.90"},
  {"id": "dish12", "name": "dish", "type": "drank", "value":"Long Island Ice Tea 8.43"},
- {"id": "dish13", "name": "dish", "type": "hoofd", "value":"Boeuf Bourgignon 17.61"}]
+ {"id": "dish13", "name": "dish", "type": "hoofd", "value":"Boeuf Bourgignon 17.61"},
+{"id": "dish14", "name": "dish", "type": "voor", "value":"Broodje van Dobben kroketje lekker man 0.12"}]
